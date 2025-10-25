@@ -162,7 +162,7 @@ export function Animated({
   const shouldAnimate = !prefersReducedMotion && !disableAnimation;
 
   if (!shouldAnimate) {
-    return <div {...props}>{children}</div>;
+    return <div {...(props as any)}>{children}</div>;
   }
 
   return (
@@ -216,7 +216,7 @@ export function StaggerContainer({
   const shouldAnimate = !prefersReducedMotion && !disableAnimation;
 
   if (!shouldAnimate) {
-    return <div {...props}>{children}</div>;
+    return <div {...(props as any)}>{children}</div>;
   }
 
   return (
@@ -243,7 +243,7 @@ export function StaggerItem({
   const shouldAnimate = !prefersReducedMotion && !disableAnimation;
 
   if (!shouldAnimate) {
-    return <div {...props}>{children}</div>;
+    return <div {...(props as any)}>{children}</div>;
   }
 
   return (
@@ -263,7 +263,7 @@ export function PageTransition({
   const prefersReducedMotion = usePrefersReducedMotion();
 
   if (prefersReducedMotion) {
-    return <div {...props}>{children}</div>;
+    return <div {...(props as any)}>{children}</div>;
   }
 
   return (

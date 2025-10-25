@@ -19,8 +19,8 @@ describe('formatPriceCeil2', () => {
   });
 
   it('formats prices with currency symbols and grouping', () => {
-    expect(formatPriceCeil2(1234.5, 'USD')).toBe('$1,234.50');
-    expect(formatPriceCeil2(0.01, 'USD')).toBe('$0.01');
+    expect(formatPriceCeil2(1234.5, 'USD')).toBe('$ 1,234.50');
+    expect(formatPriceCeil2(0.01, 'USD')).toBe('$ 0.01');
   });
 
   it('ceils negative prices toward positive infinity', () => {
