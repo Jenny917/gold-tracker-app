@@ -7,13 +7,46 @@ import { SignJWT, jwtVerify } from "jose";
 import type { User } from "../../drizzle/schema";
 import * as db from "../db";
 import { ENV } from "./env";
-import type {
-  ExchangeTokenRequest,
-  ExchangeTokenResponse,
-  GetUserInfoResponse,
-  GetUserInfoWithJwtRequest,
-  GetUserInfoWithJwtResponse,
-} from "./types/manusTypes";
+
+// OAuth types
+type ExchangeTokenRequest = {
+  clientId: string;
+  grantType: string;
+  code: string;
+  redirectUri: string;
+};
+
+type ExchangeTokenResponse = {
+  accessToken: string;
+  refreshToken: string;
+  expiresIn: number;
+};
+
+type GetUserInfoResponse = {
+  openId: string;
+  appId: string;
+  name: string;
+  email: string;
+  platform?: string;
+  loginMethod?: string;
+};
+
+type GetUserInfoWithJwtRequest = {
+  appId: string;
+  appSecret: string;
+  jwt: string;
+  jwtToken?: string;
+};
+
+type GetUserInfoWithJwtResponse = {
+  openId: string;
+  appId: string;
+  name: string;
+  email: string;
+  platform?: string;
+  loginMethod?: string;
+};
+
 // Utility function
 const isNonEmptyString = (value: unknown): value is string =>
   typeof value === "string" && value.length > 0;
